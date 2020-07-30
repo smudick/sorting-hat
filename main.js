@@ -21,6 +21,7 @@ const buildForm = () => {
           class="form-control mb-2"
           id="inlineFormInput"
           placeholder="Student Name"
+          required
         />
       </div>
       <div class="col-auto">
