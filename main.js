@@ -50,7 +50,6 @@ const nameButtonClick = () => {
 
 const backToPlaceholder = () => {
   document.querySelector("#inlineFormInput").value = '';
-  document.querySelector("#inlineFormInput").required = 'false';
 };
 
 const expelButtonClick = () => {
@@ -67,10 +66,11 @@ const getName = () => {
       name: name,
       house: houses[houseNumber].houseName,
       color: houses[houseNumber].houseColor,
-    });
-    document.querySelector("#inlineFormInput").required = 'false';
+      
+    })
+    document.getElementById('inlineFormInput').style.border = 'none';
   } else {
-    document.querySelector("#inlineFormInput").required = 'true';
+    document.getElementById('inlineFormInput').style.border = 'red 2px solid'
   }
 };
 
