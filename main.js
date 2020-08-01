@@ -1,5 +1,10 @@
 "use strict";
-const houses = ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"];
+const houses = [
+  { houseName: "Gryffindor", houseColor: "red" },
+  { houseName: "Slytherin", houseColor: "green" },
+  { houseName: "Hufflepuff", houseColor: "yellow" },
+  { houseName: "Ravenclaw", houseColor: "blue" }
+];
 
 const initialButtonClick = () => {
   document.querySelector("#sortButton").addEventListener("click", buildForm);
@@ -47,11 +52,12 @@ let studentNames = [];
 
 const getName = () => {
   const name = document.getElementById("inlineFormInput").value;
-  studentNames.push({ name: name, house: houses[getHouse()] });
+  let houseNumber = getHouse();
+  studentNames.push({ name: name, house: houses[houseNumber].houseName, color: houses[houseNumber].houseColor });
 };
 
 const getHouse = () => {
-return Math.floor(Math.random() * 4);
+  return Math.floor(Math.random() * 4);
 };
 
 const buildCard = () => {
@@ -59,7 +65,7 @@ const buildCard = () => {
 
   for (let i = 0; i < studentNames.length; i++) {
     domString += `<div class="card" style="width: 18rem;">`;
-    domString += `<div class="card-body">`;
+    domString += `<div class="card-body" style="background-color:${studentNames[i].color};">`;
     domString += `<h5 class="card-title">${studentNames[i].name}</h5>`;
     domString += `<h6 class="card-subtitle mb-2 text-muted">${studentNames[i].house}</h6>`;
     domString += `<button type="button" class="btn btn-danger" id=${i}>Expel</button>`;
@@ -70,8 +76,6 @@ const buildCard = () => {
 };
 
 const deleteItems = (e) => {
-  console.log("Delete Me!", e.target.id);
-
   const ctype = e.target.type;
   const target = e.target.id;
 
