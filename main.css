@@ -1,4 +1,20 @@
+@font-face {
+    font-family: "HarryP";
+    src: URL("/HarryP-MVZ6w.ttf") format("truetype")
+}
+html {
+    font-size: 1.4rem;
+  }
+body{
+    font-family: "HarryP", cursive;
+}
 .form {
     display: flex;
     justify-content: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
 }

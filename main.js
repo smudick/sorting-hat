@@ -2,7 +2,7 @@
 const houses = [
   { houseName: "Gryffindor", houseColor: "red" },
   { houseName: "Slytherin", houseColor: "green" },
-  { houseName: "Hufflepuff", houseColor: "yellow" },
+  { houseName: "Hufflepuff", houseColor: "#FFD700" },
   { houseName: "Ravenclaw", houseColor: "blue" }
 ];
 
@@ -26,6 +26,7 @@ const buildForm = () => {
           class="form-control mb-2"
           id="inlineFormInput"
           placeholder="Student Name"
+          autocomplete="off"
           required
         />
       </div>
@@ -64,10 +65,10 @@ const buildCard = () => {
   let domString = "";
 
   for (let i = 0; i < studentNames.length; i++) {
-    domString += `<div class="card" style="width: 18rem;">`;
+    domString += `<div class="card" style="width: 14rem; margin: 1em; color: white; text-align: center; text-transform: capitalize;">`;
     domString += `<div class="card-body" style="background-color:${studentNames[i].color};">`;
     domString += `<h5 class="card-title">${studentNames[i].name}</h5>`;
-    domString += `<h6 class="card-subtitle mb-2 text-muted">${studentNames[i].house}</h6>`;
+    domString += `<h6 class="card-subtitle mb-2">${studentNames[i].house}</h6>`;
     domString += `<button type="button" class="btn btn-danger" id=${i}>Expel</button>`;
     domString += `</div></div>`;
   }
